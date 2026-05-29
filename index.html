@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///C:/Users/taniguchi/Downloads/map.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.LGLeeN-keyboard-shortcuts-view{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.LGLeeN-keyboard-shortcuts-view table,.LGLeeN-keyboard-shortcuts-view tbody,.LGLeeN-keyboard-shortcuts-view td,.LGLeeN-keyboard-shortcuts-view tr{background:inherit;border:none;margin:0;padding:0}.LGLeeN-keyboard-shortcuts-view table{display:table}.LGLeeN-keyboard-shortcuts-view tr{display:table-row}.LGLeeN-keyboard-shortcuts-view td{-moz-box-sizing:border-box;box-sizing:border-box;display:table-cell;color:light-dark(#000,#fff);padding:6px;vertical-align:middle;white-space:nowrap}.LGLeeN-keyboard-shortcuts-view td:first-child{text-align:end}.LGLeeN-keyboard-shortcuts-view td kbd{background-color:light-dark(#e8eaed,#3c4043);border-radius:2px;border:none;-moz-box-sizing:border-box;box-sizing:border-box;color:inherit;display:inline-block;font-family:Google Sans Text,Roboto,Arial,sans-serif;line-height:16px;margin:0 2px;min-height:20px;min-width:20px;padding:2px 4px;position:relative;text-align:center}
+</style><style>.gm-control-active>img{-webkit-box-sizing:content-box;box-sizing:content-box;display:none;left:50%;pointer-events:none;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.gm-control-active>img:first-child{display:block}.gm-control-active:active>img:first-child,.gm-control-active:disabled>img:first-child,.gm-control-active:focus>img:first-child,.gm-control-active:hover>img:first-child{display:none}.gm-control-active:focus>img:nth-child(2),.gm-control-active:hover>img:nth-child(2){display:block}.gm-control-active:active>img:nth-child(3){display:block}.gm-control-active:disabled>img:nth-child(4){display:block}sentinel{}
+</style><style>.gm-style .gm-style-cc a,.gm-style .gm-style-cc button,.gm-style .gm-style-cc span,.gm-style .gm-style-mtc div{font-size:10px;-webkit-box-sizing:border-box;box-sizing:border-box}.gm-style .gm-style-cc a,.gm-style .gm-style-cc button,.gm-style .gm-style-cc span{outline-offset:3px}sentinel{}
+</style><style>@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><link type="text/css" rel="stylesheet" href="./諫早第一ホテル 周辺MAP_files/css"><link type="text/css" rel="stylesheet" href="./諫早第一ホテル 周辺MAP_files/css(1)"><style>.gm-style-moc{background-color:rgba(0,0,0,.59);pointer-events:none;text-align:center;-webkit-transition:opacity ease-in-out;transition:opacity ease-in-out}.gm-style-mot{color:white;font-family:Roboto,Arial,sans-serif;font-size:22px;margin:0;position:relative;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%)}sentinel{}
+</style><style>.gm-style img{max-width: none;}.gm-style {font: 400 11px Roboto, Arial, sans-serif; text-decoration: none;}</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>諫早第一ホテル 周辺MAP</title>
+    <!-- Tailwind CSS -->
+    <script src="./諫早第一ホテル 周辺MAP_files/saved_resource"></script>
+    <!-- Google Fonts -->
+    <link href="./諫早第一ホテル 周辺MAP_files/css2" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="./諫早第一ホテル 周辺MAP_files/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Screen Layout (Mobile First) */
+        .page {
+            width: 100%;
+            max-width: 800px; /* Restrict width on large screens */
+            min-height: 100vh;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Map Container - Responsive Height */
+        #map {
+            width: 100%;
+            height: 40vh; /* Takes 40% of screen height */
+            min-height: 300px;
+            background-color: #e5e7eb;
+            flex-shrink: 0;
+        }
+
+        /* Tabs - Scrollable on mobile */
+        .tab-container {
+            display: flex;
+            background-color: #1e3a8a; /* Blue-900 */
+            padding: 0 5px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+        }
+        .tab-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+        .tab-btn {
+            padding: 12px 15px; /* Larger tap target */
+            color: #bfdbfe; /* Blue-200 */
+            font-weight: bold;
+            font-size: 13px;
+            border-bottom: 4px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .tab-btn:hover {
+            color: white;
+        }
+        .tab-btn.active {
+            color: white;
+            border-bottom-color: #60a5fa; /* Blue-400 */
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Card Grid - 1 col on mobile, 2 cols on tablet+ */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Default 1 column */
+            gap: 12px; 
+            padding: 12px;
+            font-size: 13px; /* More readable on mobile */
+            align-content: start;
+        }
+
+        @media (min-width: 640px) {
+            .shop-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on larger screens */
+                font-size: 12px; /* Slightly smaller for desktop density */
+            }
+        }
+
+        .shop-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            page-break-inside: avoid;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .shop-card:active {
+            background-color: #f3f4f6; /* Tap feedback */
+        }
+
+        .shop-card.selected {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+            box-shadow: 0 0 0 2px #2563eb inset;
+        }
+
+        /* Action Buttons Container */
+        .action-area {
+            display: none; /* Hidden by default */
+            margin-top: 10px;
+            gap: 8px;
+        }
+        
+        .shop-card.selected .action-area {
+            display: grid;
+            grid-template-columns: 1fr; /* Stack vertically on very small screens or if single button */
+        }
+
+        /* If phone button exists, use 2 columns */
+        .shop-card.selected .action-area.has-phone {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Navi Button Base */
+        .btn-base {
+            text-align: center;
+            padding: 12px; /* Larger hit area for mobile */
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+            color: white;
+            cursor: pointer;
+            touch-action: manipulation;
+            position: relative;
+            z-index: 10; /* Ensure clickable above card */
+        }
+
+        .btn-navi {
+            background-color: #2563eb; /* Blue */
+        }
+        .btn-navi:hover { background-color: #1d4ed8; }
+
+        .btn-phone {
+            background-color: #16a34a; /* Green */
+        }
+        .btn-phone:hover { background-color: #15803d; }
+
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 6px;
+            margin-bottom: 6px;
+        }
+
+        .shop-name {
+            font-weight: bold;
+            font-size: 15px; /* Larger name */
+            color: #1f2937;
+        }
+
+        .shop-tag {
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            white-space: nowrap;
+        }
+        
+        /* Category Colors */
+        .tag-dining { background-color: #1d4ed8; } /* Blue */
+        .tag-conbini { background-color: #ea580c; } /* Orange */
+        .tag-super { background-color: #16a34a; } /* Green */
+        .tag-station { background-color: #4b5563; } /* Gray */
+        .tag-tourism { background-color: #9333ea; } /* Purple */
+
+        .shop-info-row {
+            display: flex;
+            margin-bottom: 3px;
+            align-items: baseline;
+        }
+
+        .shop-label {
+            width: 50px;
+            font-weight: bold;
+            color: #6b7280;
+            flex-shrink: 0;
+            font-size: 11px;
+        }
+
+        .shop-value {
+            color: #374151;
+            font-size: 13px;
+        }
+
+        /* Print Specifics - Restore A4 Layout */
+        @media print {
+            body { background: none; margin: 0; }
+            .page { 
+                width: 210mm; 
+                min-height: 297mm; 
+                margin: 0 auto; 
+                box-shadow: none;
+                display: block; /* Restore block for proper paging */
+            }
+            .shop-grid { 
+                grid-template-columns: repeat(2, 1fr) !important; 
+                font-size: 10px !important; 
+                display: grid !important; 
+                overflow: visible !important;
+                gap: 8px !important;
+            }
+            #map {
+                height: 350px !important; /* Fixed height for A4 */
+            }
+            .tab-container {
+                display: flex !important; /* Ensure tabs show (as headers) */
+                flex-wrap: wrap;
+                position: static !important; /* Remove sticky for print */
+                box-shadow: none !important;
+            }
+            .tab-btn {
+                padding: 5px 10px !important;
+                font-size: 10px !important;
+                color: #000 !important; /* Print friendly */
+                background: none !important;
+                border: 1px solid #ddd;
+                margin-right: 5px;
+            }
+            .shop-card {
+                break-inside: avoid;
+                padding: 8px !important;
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+            }
+            .no-print { display: none !important; }
+            .action-area { display: none !important; }
+            .shop-name { font-size: 12px !important; }
+            .shop-value { font-size: 10px !important; }
+            header {
+                padding: 10px !important;
+                background-color: #1e3a8a !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact; 
+                print-color-adjust: exact;
+                position: static !important; /* Remove sticky for print */
+            }
+        }
+
+        .map-label-hotel {
+            background: #ef4444;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.sticky{position:sticky}.top-0{top:0px}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.mb-2{margin-bottom:0.5rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-auto{margin-top:auto}.ml-1{margin-left:0.25rem}.block{display:block}.flex{display:flex}.hidden{display:none}.h-full{height:100%}.h-5{height:1.25rem}.w-5{width:1.25rem}.flex-1{flex:1 1 0%}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-blue-900{--tw-bg-opacity:1;background-color:rgb(30 58 138 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-normal{font-weight:400}.tracking-wider{letter-spacing:0.05em}.text-blue-900{--tw-text-opacity:1;color:rgb(30 58 138 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.opacity-90{opacity:0.9}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}@media (min-width: 640px){.sm\:block{display:block}.sm\:hidden{display:none}.sm\:bg-transparent{background-color:transparent}.sm\:p-0{padding:0px}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-\[10px\]{font-size:10px}.sm\:font-normal{font-weight:400}.sm\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}}</style><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/common.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/util.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/map.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/geocoder.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/geometry.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/directions.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/marker.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/log.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/onion.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/infowindow.js.ダウンロード"></script><script type="text/javascript" charset="UTF-8" src="./諫早第一ホテル 周辺MAP_files/controls.js.ダウンロード"></script></head>
+<body>
+
+    <!-- App Content -->
+    <div class="page">
+        <!-- Header -->
+        <header class="bg-blue-900 text-white p-4 flex justify-between items-center relative z-50">
+            <div>
+                <h1 class="text-xl font-bold tracking-wider sm:text-2xl">周辺ご案内MAP</h1>
+                <p class="text-xs mt-1 opacity-90">有限会社 諫早第一ホテル</p>
+            </div>
+            <div class="text-right">
+                <div class="hidden sm:block text-lg font-bold">諫早第一ホテル</div>
+                <div class="hidden sm:block text-[10px] mt-1">〒854-0006 長崎県諫早市天満町３６−１１</div>
+                <a href="tel:0957231236" class="block bg-white text-blue-900 px-2 py-1 rounded text-xs font-bold sm:bg-transparent sm:text-white sm:p-0 sm:text-[10px] sm:font-normal">
+                    <i class="fas fa-phone-alt sm:hidden mr-1"></i>0957-23-1236
+                </a>
+            </div>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tab-container sticky top-0 z-40 shadow-md">
+            <div class="tab-btn active" onclick="filterCategory(&#39;all&#39;, this)">すべて</div>
+            <div class="tab-btn" onclick="filterCategory(&#39;dining&#39;, this)"><i class="fas fa-utensils mr-1"></i>飲食</div>
+            <div class="tab-btn" onclick="filterCategory(&#39;conbini&#39;, this)"><i class="fas fa-store mr-1"></i>コンビニ</div>
+            <div class="tab-btn" onclick="filterCategory(&#39;super&#39;, this)"><i class="fas fa-shopping-basket mr-1"></i>スーパー</div>
+            <div class="tab-btn" onclick="filterCategory(&#39;station&#39;, this)"><i class="fas fa-train mr-1"></i>駅・交通</div>
+            <div class="tab-btn" onclick="filterCategory(&#39;tourism&#39;, this)"><i class="fas fa-camera mr-1"></i>観光</div>
+        </div>
+
+        <!-- Google Map Area -->
+        <div id="map" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div><button draggable="false" aria-label="キーボード ショートカット" title="キーボード ショートカット" type="button" style="background: none transparent; display: block; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; z-index: 1000002; outline-offset: 3px; right: 0px; bottom: 0px; transform: translateX(100%);"></button></div><div tabindex="0" aria-label="マップ" aria-roledescription="地図" role="region" aria-describedby="CF057B23-7B2D-4F84-9E61-B9A9E4406DF1" style="position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"><div id="CF057B23-7B2D-4F84-9E61-B9A9E4406DF1" style="display: none;"><div class="LGLeeN-keyboard-shortcuts-view"><table><tbody><tr><td><kbd aria-label="左矢印">←</kbd></td><td aria-label="左へ移動.">左へ移動</td></tr><tr><td><kbd aria-label="右矢印">→</kbd></td><td aria-label="右へ移動.">右へ移動</td></tr><tr><td><kbd aria-label="上矢印">↑</kbd></td><td aria-label="上へ移動.">上へ移動</td></tr><tr><td><kbd aria-label="下矢印">↓</kbd></td><td aria-label="下へ移動.">下へ移動</td></tr><tr><td><kbd>+</kbd></td><td aria-label="ズームイン.">ズームイン</td></tr><tr><td><kbd>-</kbd></td><td aria-label="ズームアウト.">ズームアウト</td></tr><tr><td><kbd>Home</kbd></td><td aria-label="ビューを 75% 左へ移動.">ビューを 75% 左へ移動</td></tr><tr><td><kbd>End</kbd></td><td aria-label="ビューを 75% 右へ移動.">ビューを 75% 右へ移動</td></tr><tr><td><kbd>Page Up</kbd></td><td aria-label="ビューを 75% 上へ移動.">ビューを 75% 上へ移動</td></tr><tr><td><kbd>Page Down</kbd></td><td aria-label="ビューを 75% 下へ移動.">ビューを 75% 下へ移動</td></tr></tbody></table></div></div></div><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;"><div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; will-change: transform; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 986; transform: matrix(1, 0, 0, 1, -89, -131);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; z-index: 986; transform: matrix(1, 0, 0, 1, -89, -131);"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: -256px;"></div></div></div><div style="width: 20px; height: 20px; position: absolute; left: 21px; top: -86px; z-index: 999;"><canvas width="20" height="20" draggable="false" style="width: 20px; height: 20px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 31px; top: -76px; z-index: 999;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="map-label-hotel" aria-hidden="true" style="color: white; font-size: 12px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">★諫早第一ホテル</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 0px; top: -38px; z-index: -26;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 12px; top: -26px; z-index: -26;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">9</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 11px; top: 2px; z-index: 14;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 23px; top: 14px; z-index: 14;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">1</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 67px; top: 79px; z-index: 91;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 79px; top: 91px; z-index: 91;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">11</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 46px; top: 22px; z-index: 34;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 58px; top: 34px; z-index: 34;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">8</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 7px; top: 8px; z-index: 20;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 19px; top: 20px; z-index: 20;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">2</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 4px; top: -9px; z-index: 3;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 16px; top: 3px; z-index: 3;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">7</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 24px; top: -10px; z-index: 2;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 36px; top: 2px; z-index: 2;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">3</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: -18px; top: -26px; z-index: -14;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: -6px; top: -14px; z-index: -14;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">10</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 0px; top: -16px; z-index: -4;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 12px; top: -4px; z-index: -4;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">13</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 2px; top: 10px; z-index: 22;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 14px; top: 22px; z-index: 22;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">5</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: -5px; top: -21px; z-index: -9;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 7px; top: -9px; z-index: -9;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">6</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 9px; top: 12px; z-index: 24;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 21px; top: 24px; z-index: 24;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">14</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: -18px; top: -18px; z-index: -6;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: -6px; top: -6px; z-index: -6;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">16</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 3px; top: -12px; z-index: 0;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 15px; top: 0px; z-index: 0;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">4</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: -39px; top: -30px; z-index: -18;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: -27px; top: -18px; z-index: -18;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">17</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 5px; top: 38px; z-index: 50;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 17px; top: 50px; z-index: 50;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">12</div></div></div></div><div style="width: 24px; height: 24px; position: absolute; left: 5px; top: 16px; z-index: 28;"><canvas width="24" height="24" draggable="false" style="width: 24px; height: 24px; position: absolute; left: 0px; top: 0px; user-select: none;"></canvas></div><div style="transform: translateZ(0px); position: absolute; left: 17px; top: 28px; z-index: 28;"><div style="height: 100px; transform: translate(-50%, -50px); display: table; border-spacing: 0px;"><div style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"><div class="" aria-hidden="true" style="color: white; font-size: 10px; font-weight: bold; font-family: Roboto, Arial, sans-serif;">15</div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 986; transform: matrix(1, 0, 0, 1, -89, -131);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(1)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(2)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(3)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(4)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(5)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(6)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(7)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(8)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(9)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(10)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="" role="presentation" src="./諫早第一ホテル 周辺MAP_files/vt(11)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"><div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; will-change: transform; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><slot></slot><span id="75E610CB-B1CF-4D65-A613-9A2D3EF36F5C" aria-live="polite" style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap; border: 0px;"></span><div title="" aria-label="★諫早第一ホテル" role="img" tabindex="-1" style="width: 20px; height: 20px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 21px; top: -86px; z-index: 999;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 20px; height: 20px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="9" role="button" tabindex="0" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 0px; top: -38px; z-index: -26;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="1" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 11px; top: 2px; z-index: 14;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="11" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 67px; top: 79px; z-index: 91;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="8" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 46px; top: 22px; z-index: 34;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="2" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 7px; top: 8px; z-index: 20;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="7" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 4px; top: -9px; z-index: 3;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="3" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 24px; top: -10px; z-index: 2;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="10" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: -18px; top: -26px; z-index: -14;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="13" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 0px; top: -16px; z-index: -4;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="5" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 2px; top: 10px; z-index: 22;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="6" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: -5px; top: -21px; z-index: -9;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="14" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 9px; top: 12px; z-index: 24;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="16" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: -18px; top: -18px; z-index: -6;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="4" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 3px; top: -12px; z-index: 0;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="17" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: -39px; top: -30px; z-index: -18;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="12" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 5px; top: 38px; z-index: 50;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div title="" aria-label="15" role="button" tabindex="-1" style="width: 24px; height: 24px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: 5px; top: 16px; z-index: 28;"><img alt="" src="./諫早第一ホテル 周辺MAP_files/transparent.png" draggable="false" style="width: 24px; height: 24px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div class="gm-style-moc" style="z-index: 4; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; transition-property: opacity, display; transition-behavior: allow-discrete; opacity: 0; display: none;"><p class="gm-style-mot"></p></div></div><iframe aria-hidden="true" frameborder="0" tabindex="-1" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; opacity: 0;" src="./諫早第一ホテル 周辺MAP_files/saved_resource.html"></iframe><div style="pointer-events: none; width: 100%; height: 100%; box-sizing: border-box; position: absolute; z-index: 1000002; opacity: 0; border: 2px solid rgb(26, 115, 232);"></div><div></div><div></div><div></div><div></div><div><button draggable="false" aria-label="全画面ビューを切り替えます" title="全画面ビューを切り替えます" type="button" aria-pressed="false" class="gm-control-active gm-fullscreen-control" style="background: none rgb(255, 255, 255); border: 0px; margin: 10px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; border-radius: 2px; height: 40px; width: 40px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; overflow: hidden; display: none; top: 0px; right: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2018%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%200v6h2V2h4V0zm16%200h-4v2h4v4h2V0zm0%2016h-4v2h6v-6h-2zM2%2012H0v6h6v-2H2z%22/%3E%3C/svg%3E" alt="" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2018%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%200v6h2V2h4V0zm16%200h-4v2h4v4h2V0zm0%2016h-4v2h6v-6h-2zM2%2012H0v6h6v-2H2z%22/%3E%3C/svg%3E" alt="" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2018%22%3E%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%200v6h2V2h4V0zm16%200h-4v2h4v4h2V0zm0%2016h-4v2h6v-6h-2zM2%2012H0v6h6v-2H2z%22/%3E%3C/svg%3E" alt="" style="height: 18px; width: 18px;"></button></div><div></div><div></div><div></div><div></div><div></div><div><div style="margin: 0px 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" rel="noopener" title="Google マップでこの地域を開きます（新しいウィンドウが開きます）" aria-label="Google マップでこの地域を開きます（新しいウィンドウが開きます）" href="https://maps.google.com/maps?ll=32.8517,130.0418&amp;z=14&amp;t=m&amp;hl=ja&amp;gl=US&amp;mapclient=apiv3" style="display: inline;"><div style="width: 66px; height: 26px;"><img alt="Google" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2069%2029%22%3E%3Cg%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.5%22%20opacity%3D%22.9%22%3E%3Cpath%20d%3D%22m17.4706%207.33616.5412-.54112-.5519-.53011c-1.3636-1.30974-3.2017-2.31971-5.7591-2.31971-4.6137%200-8.50262%203.75517-8.50262%208.39578%200%204.6407%203.88892%208.3958%208.50262%208.3958%202.4704%200%204.3765-.8188%205.8732-2.3679%201.5695-1.5729%202.0216-3.7363%202.0216-5.4119%200-.5232-.044-1.0254-.1295-1.4529l-.1206-.6029h-8.3947v3.5942h4.8301c-.1724.5966-.4321%201.0286-.7491%201.3461-.6288.6214-1.5823%201.3094-3.331%201.3094-2.65245%200-4.73598-2.1312-4.73598-4.8099%200-2.67861%202.08353-4.80981%204.73598-4.80981%201.4362%200%202.4752.5607%203.257%201.29229l.5298.49574.513-.51303z%22/%3E%3Cpath%20d%3D%22M24.8656%2020.7286c3.089%200%205.6036-2.4192%205.6036-5.6692%200-3.2681-2.5162-5.66931-5.6036-5.66931-3.0873%200-5.6035%202.40121-5.6035%205.66931%200%203.25%202.5145%205.6692%205.6035%205.6692Zm0-7.9004c1.014%200%201.9766.837%201.9766%202.2312%200%201.3805-.9653%202.2311-1.9766%202.2311-1.0099%200-1.9765-.8574-1.9765-2.2311%200-1.3874.9639-2.2312%201.9765-2.2312Z%22/%3E%3Cpath%20d%3D%22M35.7511%2017.2905h-.0042c-1.0099%200-1.9766-.8574-1.9766-2.2311%200-1.3874.964-2.2312%201.9766-2.2312%201.0139%200%201.9765.837%201.9765%202.2312%200%201.3845-.968%202.2367-1.9723%202.2311Zm-.0124%203.4381c3.089%200%205.6035-2.4192%205.6035-5.6692%200-3.2681-2.5162-5.66931-5.6035-5.66931-3.0874%200-5.6036%202.40121-5.6036%205.66931%200%203.2508%202.5236%205.6692%205.6036%205.6692Z%22/%3E%3Cpath%20d%3D%22M51.953%2010.4357v-.74997h-3.5531v.12253c-.55-.26178-1.2022-.42639-1.9191-.42639-2.8837%200-5.464%202.51793-5.464%205.69393%200%202.1269%201.164%203.9479%202.8033%204.9137l-.0658.0273-1.8806.7802-.6929.2874.2876.6928c.6228%201.5004%202.2776%203.3697%205.0535%203.3697%201.4105%200%202.787-.4145%203.814-1.4093%201.0332-1.0009%201.6171-2.4965%201.6171-4.4653zm-7.2194%209.9844-.0002-.0005c.5552.2005%201.1446.309%201.7474.309.6808%200%201.3058-.1467%201.841-.3891-.0876.3891-.2417.671-.4252.8682-.2812.3022-.7202.5011-1.3747.5011-.91190000000001%200-1.5201-.6476-1.7883-1.2887Zm1.9361-7.5919c.9722%200%201.878.8483%201.878%202.2558%200%201.3796-.8956%202.2147-1.878%202.2147-1.0428%200-1.993-.8738-1.993-2.2147%200-1.3754.9595-2.2558%201.993-2.2558Zm9.069-7.60739v-.75h-3.6599V20.4412h3.6599z%22/%3E%3Cpath%20d%3D%22m63.9128%2016.0614-.6183-.4122-.4179.6145c-.4562.6709-1.0102%201.0432-1.8025%201.0432-.4306%200-.7595-.0981-1.0197-.2622-.07-.0441-.1383-.0951-.2046-.1536l5.6999-2.3625.6825-.283L65.9596%2013.5589l-.219-.5514c-.4528-1.2075-1.8899-3.60918-4.9128-3.60918-2.9833%200-5.3244%202.36358-5.3244%205.66928%200%203.1475%202.3222%205.6693%205.5625%205.6693%202.6043%200%204.1111-1.5991%204.7283-2.5156l.421-.625L65.5882%2017.1783zm-2.5667-3.2103-1.9353.8015c.3795-.5743%201.0107-.8572%201.4909-.8572.1653%200%20.3136.0207.4444.0557Z%22/%3E%3C/g%3E%3Cpath%20fill%3D%22%233c4043%22%20d%3D%22M11.7008%2019.9868c-4.21304%200-7.75262-3.4328-7.75262-7.6458%200-4.21297%203.53958-7.64578%207.75262-7.64578%202.3323%200%203.9912.91159%205.2395%202.11061l-1.47%201.47003c-.8952-.83767-2.1106-1.49467-3.7695-1.49467-3.07972%200-5.48598%202.48016-5.48598%205.55981%200%203.0797%202.40626%205.5599%205.48598%205.5599%201.9956%200%203.1289-.8048%203.8598-1.5275.5995-.5996.9855-1.4537%201.1333-2.628h-4.9931v-2.0942h7.0298c.0739.3695.115.8212.115%201.3058%200%201.5685-.427%203.5067-1.8067%204.8864-1.3469%201.3961-3.0551%202.1434-5.3381%202.1434m18.0184-4.9274c0%202.8333-2.1763%204.9192-4.8536%204.9192-2.6772%200-4.8535-2.0859-4.8535-4.9192%200-2.8498%202.1763-4.9193%204.8535-4.9193%202.6773%200%204.8536%202.0695%204.8536%204.9193m-2.127%200c0-1.7739-1.2648-2.9812-2.7266-2.9812s-2.7265%201.2155-2.7265%202.9812c0%201.7492%201.2647%202.9811%202.7265%202.9811s2.7266-1.2237%202.7266-2.9811m13%200c0%202.8333-2.1763%204.9192-4.8535%204.9192-2.6691%200-4.8536-2.0859-4.8536-4.9192%200-2.8498%202.1763-4.9193%204.8536-4.9193%202.6772%200%204.8535%202.0695%204.8535%204.9193m-2.1188%200c0-1.7739-1.2647-2.9812-2.7265-2.9812s-2.7266%201.2155-2.7266%202.9812c0%201.7492%201.2648%202.9811%202.7266%202.9811%201.4618.0082%202.7265-1.2237%202.7265-2.9811m12.7296-4.6237v8.8366c0%203.6382-2.1435%205.1246-4.6811%205.1246-2.3899%200-3.8188-1.6014-4.3609-2.9072l1.8807-.7802c.3367.8048%201.158%201.7493%202.4802%201.7493%201.626%200%202.628-1.0101%202.628-2.8908v-.7063h-.074c-.4845.5995-1.4207%201.1169-2.5951%201.1169-2.4637%200-4.714-2.1434-4.714-4.9028%200-2.7758%202.2585-4.9439%204.714-4.9439%201.1744%200%202.1106.5256%202.5951%201.1004h.074v-.7966zm-1.9053%204.6483c0-1.7328-1.158-3.0058-2.628-3.0058-1.4947%200-2.743%201.2647-2.743%203.0058%200%201.7164%201.2483%202.9647%202.743%202.9647%201.47%200%202.628-1.2483%202.628-2.9647m5.691-9.86319V19.6912h-2.1599V5.22081zm8.5081%2011.46459%201.6754%201.1169c-.5421.8049-1.8478%202.1846-4.1063%202.1846-2.8004%200-4.8125-2.1599-4.8125-4.9193%200-2.9237%202.0367-4.9193%204.5744-4.9193%202.554%200%203.8023%202.0285%204.213%203.129l.2217.5584-6.5782%202.7266c.501.9855%201.2894%201.4946%202.3898%201.4946%201.1005%200%201.8643-.5502%202.4227-1.3715m-5.1656-1.7739%204.4019-1.8231c-.2464-.616-.9691-1.043-1.8314-1.043-1.1005%200-2.628.9691-2.5705%202.8661%22/%3E%3C/svg%3E" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div></div><div></div><div><div style="display: inline-flex; position: absolute; right: 0px; bottom: 0px;"><div class="gmnoprint" style="z-index: 1000001;"><div draggable="false" class="gm-style-cc" style="user-select: none; position: relative; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><button draggable="false" aria-label="キーボード ショートカット" title="キーボード ショートカット" type="button" style="background: none; display: inline-block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; color: rgb(0, 0, 0); font-family: inherit; line-height: inherit;">キーボード ショートカット</button></div></div></div><div class="gmnoprint" style="z-index: 1000001;"><div draggable="false" class="gm-style-cc" style="user-select: none; position: relative; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><button draggable="false" aria-label="地図データ" title="地図データ" type="button" style="background: none; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; color: rgb(0, 0, 0); font-family: inherit; line-height: inherit; display: none;">地図データ</button><span style="">地図データ ©2026</span></div></div></div><div class="gmnoscreen"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(0, 0, 0); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">地図データ ©2026</div></div><button draggable="false" aria-label="地図の縮尺: 62 ピクセルあたり 500 m" title="地図の縮尺: 62 ピクセルあたり 500 m" type="button" class="gm-style-cc" aria-describedby="F504F632-3CBA-4713-A645-CFCB8DC58EFE" style="background: none; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><span style="color: rgb(0, 0, 0);">500 m&nbsp;</span><div style="position: relative; display: inline-block; height: 8px; bottom: -1px; width: 66px;"><div style="width: 100%; height: 4px; position: absolute; left: 0px; top: 0px;"></div><div style="width: 4px; height: 8px; left: 0px; top: 0px;"></div><div style="width: 4px; height: 8px; position: absolute; right: 0px; bottom: 0px;"></div><div style="position: absolute; background-color: rgb(0, 0, 0); height: 2px; left: 1px; bottom: 1px; right: 1px;"></div><div style="position: absolute; width: 2px; height: 6px; left: 1px; top: 1px; background-color: rgb(0, 0, 0);"></div><div style="width: 2px; height: 6px; position: absolute; background-color: rgb(0, 0, 0); bottom: 1px; right: 1px;"></div></div></div><span id="F504F632-3CBA-4713-A645-CFCB8DC58EFE" style="display: none;">クリックすると、メートル単位とヤードポンド単位が切り替わります</span></button><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; position: relative; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a aria-label="利用規約（新しいタブで開きます）" href="https://www.google.com/intl/ja_US/help/terms_maps.html" target="_blank" rel="noopener" style="text-decoration: none; cursor: pointer; color: rgb(0, 0, 0);">利用規約</a></div></div><div draggable="false" class="gm-style-cc" style="user-select: none; position: relative; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_blank" rel="noopener" title="Google に地図や画像のエラーを報告する" dir="ltr" aria-label="地図の誤りを報告する（新しいタブで開きます）" href="https://www.google.com/maps/@32.8517,130.0418,14z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; text-decoration: none; position: relative; color: rgb(0, 0, 0);">地図の誤りを報告する</a></div></div></div></div></div></div></div>
+
+        <!-- Shop List Area -->
+        <div class="flex-1 bg-white flex flex-col relative">
+            <div class="px-4 py-2 bg-gray-100 border-b border-gray-200 flex items-center justify-between shadow-sm z-30">
+                <div class="flex items-center">
+                    <span class="bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded mr-2" id="listTitleBadge">All</span>
+                    <span class="text-sm font-bold text-gray-700" id="listTitleText">周辺スポットリスト</span>
+                </div>
+                <span class="text-[10px] text-gray-400">クリックでナビ</span>
+            </div>
+            
+            <div class="shop-grid" id="shopList"><div class="shop-card" id="shop-card-1">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">1</span>
+                            <span class="shop-name truncate">呑み食い処ラストサムライ</span>
+                        </div>
+                        <span class="shop-tag tag-dining">居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町12-10</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">韓国料理/焼肉</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.6</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩10分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">17:00-24:00 / 不定休</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA12-10&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:08083637235" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-2">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">2</span>
+                            <span class="shop-name truncate">呑み食い処さむらい</span>
+                        </div>
+                        <span class="shop-tag tag-dining">居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町8-10</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">焼き鳥/居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.5</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩11分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">18:00-24:00 / 不定休</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA8-10&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:0957226539" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-3">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">3</span>
+                            <span class="shop-name truncate">李花</span>
+                        </div>
+                        <span class="shop-tag tag-dining">中華/食堂</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">天満町1-26</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">中華</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">4.4</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩8分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">11:00-20:30 / 日・第4月</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E5%A4%A9%E6%BA%80%E7%94%BA1-26&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:0957236148" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-4">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">4</span>
+                            <span class="shop-name truncate">登利亭 諫早総本店</span>
+                        </div>
+                        <span class="shop-tag tag-dining">和食処</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町11-27</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">海鮮/居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.8</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩10分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">17:00-23:30 / 年中無休</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA11-27&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:0957228611" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-5">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">5</span>
+                            <span class="shop-name truncate">ひかり亭 諫早駅前店</span>
+                        </div>
+                        <span class="shop-tag tag-dining">居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町7-10</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">ラーメン/居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.9</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩12分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">18:00-3:00 / 不定休</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA7-10&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:0957351715" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-6">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">6</span>
+                            <span class="shop-name truncate">さかなや道場</span>
+                        </div>
+                        <span class="shop-tag tag-dining">海鮮居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町18-1</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">海鮮/居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.7</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩10分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">16:00-23:00 / 無休</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA18-1&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:05020306827" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-7">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">7</span>
+                            <span class="shop-name truncate">寿司一 本店</span>
+                        </div>
+                        <span class="shop-tag tag-dining">寿司</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町11-24</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">寿司</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">4.5</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩10分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">17:30-23:00 / 月曜日</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA11-24&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:0957224608" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-8">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">8</span>
+                            <span class="shop-name truncate">ファミマ 諫早天満町</span>
+                        </div>
+                        <span class="shop-tag tag-conbini">コンビニ</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">天満町20-18</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-store"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">24時間・ATM・酒</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.5</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩13分</span>
+                    </div>
+                    
+                    
+                    <div class="action-area ">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E5%A4%A9%E6%BA%80%E7%94%BA20-18&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-9">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">9</span>
+                            <span class="shop-name truncate">まるたか生鮮市場 駅前店</span>
+                        </div>
+                        <span class="shop-tag tag-super">スーパー</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町10-3</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-shopping-basket"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">生鮮食品・惣菜</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.7</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩6分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">9:00-21:00 / 元日</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA10-3&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:0957220326" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-10">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">10</span>
+                            <span class="shop-name truncate">諫早駅東口 イーサ iisa</span>
+                        </div>
+                        <span class="shop-tag tag-station">駅</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町1-1</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-train"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">新幹線・JR・島鉄</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.8</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩10分</span>
+                    </div>
+                    
+                    
+                    <div class="action-area ">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA1-1&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-11">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">11</span>
+                            <span class="shop-name truncate">眼鏡橋</span>
+                        </div>
+                        <span class="shop-tag tag-tourism">観光名所</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">高城町770-2</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-camera"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">石造りのアーチ橋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">4.1</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩21分</span>
+                    </div>
+                    
+                    
+                    <div class="action-area ">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E9%AB%98%E5%9F%8E%E7%94%BA770-2&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-12">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">12</span>
+                            <span class="shop-name truncate">諫早神社</span>
+                        </div>
+                        <span class="shop-tag tag-tourism">神社</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">宇都町1-12</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-camera"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">九州総守護</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">4.4</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩17分</span>
+                    </div>
+                    
+                    
+                    <div class="action-area ">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E5%AE%87%E9%83%BD%E7%94%BA1-12&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-13">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">13</span>
+                            <span class="shop-name truncate">ファミマ 諫早駅東口店</span>
+                        </div>
+                        <span class="shop-tag tag-conbini">コンビニ</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町10-1-101</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-store"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">24時間・たばこ・酒・ATM</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">4</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩10分</span>
+                    </div>
+                    
+                    
+                    <div class="action-area ">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA10-1-101&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-14">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">14</span>
+                            <span class="shop-name truncate">焼鳥 サブ</span>
+                        </div>
+                        <span class="shop-tag tag-dining">居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町8-15</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">焼き鳥/居酒屋</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">4.7</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩11分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">18:00-0:00 / 火曜日</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA8-15&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:0957466310" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-15">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">15</span>
+                            <span class="shop-name truncate">ザ•ホルモン諫早</span>
+                        </div>
+                        <span class="shop-tag tag-dining">焼肉</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌東町6-8 一階</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-utensils"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">ホルモン/焼肉</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">4.3</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩13分</span>
+                    </div>
+                    
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">18:00-朝 / 不定休</span>
+                    </div>
+                    
+                    
+                    <div class="action-area has-phone">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E6%9D%B1%E7%94%BA6-8%20%E4%B8%80%E9%9A%8E&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                        <a href="tel:09049193818" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-16">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">16</span>
+                            <span class="shop-name truncate">ファミマ 銘品蔵諫早駅店</span>
+                        </div>
+                        <span class="shop-tag tag-conbini">コンビニ</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌町1-2</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-store"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">酒/たばこ/ATM</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">3.5</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩10分</span>
+                    </div>
+                    
+                    
+                    <div class="action-area ">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E7%94%BA1-2&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                    </div>
+                </div><div class="shop-card" id="shop-card-17">
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">17</span>
+                            <span class="shop-name truncate">ファミマ 諫早永昌店</span>
+                        </div>
+                        <span class="shop-tag tag-conbini">コンビニ</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">永昌町14-10</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-store"></i> 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">24時間/酒/たばこ/ATM</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">2.9</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">徒歩14分</span>
+                    </div>
+                    
+                    
+                    <div class="action-area ">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%95%B7%E5%B4%8E%E7%9C%8C%E8%AB%AB%E6%97%A9%E5%B8%82%E6%B0%B8%E6%98%8C%E7%94%BA14-10&amp;travelmode=walking" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        
+                    </div>
+                </div></div>
+
+            <!-- Footer -->
+            <div class="mt-auto p-4 bg-gray-50 border-t border-gray-200 text-center no-print">
+                <p class="text-xs text-gray-500">※営業時間は変更になる場合がございます。ご来店の際は店舗へご確認ください。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API Key
+        const API_KEY = "AIzaSyDlW-_rpqWuFYEEbAOI_bVQ3jC1WSypKV8";
+
+        // Data Definition
+        const hotelData = {
+            name: "諫早第一ホテル",
+            address: "長崎県諫早市天満町３６−１１",
+            // 天満町36-11の正しい座標に修正（ルート案内の遠回りを防ぐため、道路寄りの座標を設定）
+            lat: 32.85715, lng: 130.04450 
+        };
+
+        const shops = [
+            {
+                id: 1, category: "dining", name: "呑み食い処ラストサムライ", type: "居酒屋",
+                main: "韓国料理/焼肉", rating: 3.6, hours: "17:00-24:00", holiday: "不定休", phone: "080-8363-7235", walk: "徒歩10分",
+                address: "長崎県諫早市永昌東町12-10",
+                lat: 32.8512, lng: 130.0438, 
+                note: "メニュー豊富。駅東口エリア。"
+            },
+            {
+                id: 2, category: "dining", name: "呑み食い処さむらい", type: "居酒屋",
+                main: "焼き鳥/居酒屋", rating: 3.5, hours: "18:00-24:00", holiday: "不定休", phone: "0957-22-6539", walk: "徒歩11分",
+                address: "長崎県諫早市永昌東町8-10",
+                lat: 32.8504, lng: 130.0434, 
+                note: "地元で愛される落ち着いた雰囲気。"
+            },
+            {
+                id: 3, category: "dining", name: "李花", type: "中華/食堂",
+                main: "中華", rating: 4.4, hours: "11:00-20:30", holiday: "日・第4月", phone: "0957-23-6148", walk: "徒歩8分",
+                address: "長崎県諫早市天満町1-26",
+                lat: 32.8515, lng: 130.0449, 
+                note: "ホテルから川沿いを北へ。食事利用に便利。"
+            },
+            {
+                id: 4, category: "dining", name: "登利亭 諫早総本店", type: "和食処",
+                main: "海鮮/居酒屋", rating: 3.8, hours: "17:00-23:30", holiday: "年中無休", phone: "0957-22-8611", walk: "徒歩10分",
+                address: "長崎県諫早市永昌東町11-27",
+                lat: 32.8516, lng: 130.0431, 
+                note: "いけす完備。新鮮な魚料理が自慢。"
+            },
+            {
+                id: 5, category: "dining", name: "ひかり亭 諫早駅前店", type: "居酒屋",
+                main: "ラーメン/居酒屋", rating: 3.9, hours: "18:00-3:00", holiday: "不定休", phone: "0957-35-1715", walk: "徒歩12分",
+                address: "長崎県諫早市永昌東町7-10",
+                lat: 32.8498, lng: 130.0436, 
+                note: "深夜まで営業。アットホーム。"
+            },
+            {
+                id: 6, category: "dining", name: "さかなや道場", type: "海鮮居酒屋",
+                main: "海鮮/居酒屋", rating: 3.7, hours: "16:00-23:00", holiday: "無休", phone: "050-2030-6827", walk: "徒歩10分",
+                address: "長崎県諫早市永昌東町18-1",
+                lat: 32.8524, lng: 130.0425, 
+                note: "諫早ターミナルホテル1F。駅近く。"
+            },
+            {
+                id: 7, category: "dining", name: "寿司一 本店", type: "寿司",
+                main: "寿司", rating: 4.5, hours: "17:30-23:00", holiday: "月曜日", phone: "0957-22-4608", walk: "徒歩10分",
+                address: "長崎県諫早市永昌東町11-24",
+                lat: 32.8514, lng: 130.0432, 
+                note: "創業48年。本格寿司を堪能できる。"
+            },
+            {
+                id: 8, category: "conbini", name: "ファミマ 諫早天満町", type: "コンビニ",
+                main: "24時間・ATM・酒", rating: 3.5, hours: "24時間", holiday: "無休", phone: "-", walk: "徒歩13分",
+                address: "長崎県諫早市天満町20-18",
+                lat: 32.8492, lng: 130.0467, 
+                note: "ホテルから一番近いコンビニ。"
+            },
+            {
+                id: 9, category: "super", name: "まるたか生鮮市場 駅前店", type: "スーパー",
+                main: "生鮮食品・惣菜", rating: 3.7, hours: "9:00-21:00", holiday: "元日", phone: "0957-22-0326", walk: "徒歩6分",
+                address: "長崎県諫早市永昌東町10-3",
+                lat: 32.8512, lng: 130.0420, 
+                note: "地元の新鮮な食材やお惣菜。"
+            },
+            {
+                id: 10, category: "station", name: "諫早駅東口 イーサ iisa", type: "駅",
+                main: "新幹線・JR・島鉄", rating: 3.8, hours: "始発-終電", holiday: "-", phone: "-", walk: "徒歩10分",
+                address: "長崎県諫早市永昌東町1-1",
+                lat: 32.8517, lng: 130.0418, 
+                note: "西九州新幹線、JR各線、バスセンター。"
+            },
+            {
+                id: 11, category: "tourism", name: "眼鏡橋", type: "観光名所",
+                main: "石造りのアーチ橋", rating: 4.1, hours: "散策自由", holiday: "-", phone: "-", walk: "徒歩21分",
+                address: "長崎県諫早市高城町770-2",
+                lat: 32.8454, lng: 130.0491, 
+                note: "諫早公園内。国指定重要文化財。"
+            },
+            {
+                id: 12, category: "tourism", name: "諫早神社", type: "神社",
+                main: "九州総守護", rating: 4.4, hours: "参拝自由", holiday: "-", phone: "-", walk: "徒歩17分",
+                address: "長崎県諫早市宇都町1-12",
+                lat: 32.8483, lng: 130.0432, 
+                note: "健康長寿・厄除けの神様。"
+            },
+            {
+                id: 13, category: "conbini", name: "ファミマ 諫早駅東口店", type: "コンビニ",
+                main: "24時間・たばこ・酒・ATM", rating: 4.0, hours: "24時間", holiday: "無休", phone: "-", walk: "徒歩10分",
+                address: "長崎県諫早市永昌東町10-1-101",
+                lat: 32.8515, lng: 130.0420, 
+                note: "駅東口すぐ。便利な立地。"
+            },
+            {
+                id: 14, category: "dining", name: "焼鳥 サブ", type: "居酒屋",
+                main: "焼き鳥/居酒屋", rating: 4.7, hours: "18:00-0:00", holiday: "火曜日", phone: "0957-46-6310", walk: "徒歩11分",
+                address: "長崎県諫早市永昌東町8-15",
+                lat: 32.8506, lng: 130.0432, 
+                note: "口コミ高評価の焼き鳥店。"
+            },
+            {
+                id: 15, category: "dining", name: "ザ•ホルモン諫早", type: "焼肉",
+                main: "ホルモン/焼肉", rating: 4.3, hours: "18:00-朝", holiday: "不定休", phone: "090-4919-3818", walk: "徒歩13分",
+                address: "長崎県諫早市永昌東町6-8 一階",
+                lat: 32.8495, lng: 130.0440, 
+                note: "ホルモンが人気の焼肉店。"
+            },
+            {
+                id: 16, category: "conbini", name: "ファミマ 銘品蔵諫早駅店", type: "コンビニ",
+                main: "酒/たばこ/ATM", rating: 3.5, hours: "要確認", holiday: "無休", phone: "-", walk: "徒歩10分",
+                address: "長崎県諫早市永昌町1-2",
+                lat: 32.8518, lng: 130.0418, 
+                note: "駅構内。お土産も充実。"
+            },
+            {
+                id: 17, category: "conbini", name: "ファミマ 諫早永昌店", type: "コンビニ",
+                main: "24時間/酒/たばこ/ATM", rating: 2.9, hours: "24時間", holiday: "無休", phone: "-", walk: "徒歩14分",
+                address: "長崎県諫早市永昌町14-10",
+                lat: 32.8500, lng: 130.0380, 
+                note: "駅西口方面。"
+            }
+        ];
+
+        let map;
+        let directionsService;
+        let directionsRenderer;
+        let markers = [];
+        let currentCategory = 'all';
+        let geocoder;
+
+        function filterCategory(cat, btnElement) {
+            currentCategory = cat;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+            
+            const titles = {
+                'all': 'すべて', 'dining': '飲食', 'conbini': 'コンビニ',
+                'super': 'スーパー', 'station': '駅・交通', 'tourism': '観光'
+            };
+            document.getElementById('listTitleBadge').innerText = titles[cat] || cat;
+            
+            renderShops();
+            updateMapMarkers();
+        }
+
+        function renderShops() {
+            const container = document.getElementById('shopList');
+            container.innerHTML = ''; 
+            
+            const filteredShops = currentCategory === 'all' 
+                ? shops 
+                : shops.filter(s => s.category === currentCategory);
+
+            if (filteredShops.length === 0) {
+                container.innerHTML = '<div class="col-span-2 text-center text-gray-400 py-4">該当するスポットはありません</div>';
+                return;
+            }
+
+            filteredShops.forEach((shop) => {
+                const card = document.createElement('div');
+                card.className = 'shop-card';
+                card.id = `shop-card-${shop.id}`;
+                
+                // カード全体のクリック処理
+                // ボタン(aタグ)がクリックされたときは処理しない
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('a')) {
+                        return; // ボタンクリック時はカード選択処理をスキップ
+                    }
+                    showRouteToShop(shop.id);
+                });
+                
+                let tagClass = 'tag-' + shop.category;
+                let icon = '';
+                if(shop.category === 'dining') icon = '<i class="fas fa-utensils"></i>';
+                else if(shop.category === 'conbini') icon = '<i class="fas fa-store"></i>';
+                else if(shop.category === 'super') icon = '<i class="fas fa-shopping-basket"></i>';
+                else if(shop.category === 'station') icon = '<i class="fas fa-train"></i>';
+                else if(shop.category === 'tourism') icon = '<i class="fas fa-camera"></i>';
+                
+                const gmapLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(shop.address)}&travelmode=walking`;
+                
+                // Phone check
+                const hasPhone = shop.phone && shop.phone !== '-';
+                const actionClass = hasPhone ? 'has-phone' : '';
+
+                card.innerHTML = `
+                    <div class="shop-header">
+                        <div class="flex items-center">
+                            <span class="bg-gray-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] mr-2">${shop.id}</span>
+                            <span class="shop-name truncate">${shop.name}</span>
+                        </div>
+                        <span class="shop-tag ${tagClass}">${shop.type}</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-map-marker-alt"></i> 住所</span>
+                        <span class="shop-value truncate">${shop.address.replace("長崎県諫早市", "")}</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label">${icon} 内容</span>
+                        <span class="shop-value font-bold text-blue-900 truncate">${shop.main}</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-star text-yellow-400"></i> 評価</span>
+                        <span class="shop-value font-bold text-gray-800">${shop.rating}</span>
+                    </div>
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-walking"></i> 時間</span>
+                        <span class="shop-value font-bold text-green-700 truncate">${shop.walk}</span>
+                    </div>
+                    ${shop.category === 'dining' || shop.category === 'super' ? `
+                    <div class="shop-info-row">
+                        <span class="shop-label"><i class="fas fa-clock"></i> 営業</span>
+                        <span class="shop-value truncate">${shop.hours} / ${shop.holiday}</span>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="action-area ${actionClass}">
+                        <a href="${gmapLink}" target="_blank" class="btn-base btn-navi shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-location-arrow mr-1"></i> ナビ開始
+                        </a>
+                        ${hasPhone ? `
+                        <a href="tel:${shop.phone.replace(/-/g, '')}" class="btn-base btn-phone shadow-md" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone-alt mr-1"></i> 電話する<span class="text-[10px] ml-1 font-normal">(長押し)</span>
+                        </a>
+                        ` : ''}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function createMarker(shop) {
+            let color = '#1d4ed8'; 
+            if(shop.category === 'conbini') color = '#ea580c';
+            if(shop.category === 'super') color = '#16a34a';
+            if(shop.category === 'station') color = '#4b5563';
+            if(shop.category === 'tourism') color = '#9333ea';
+
+            const marker = new google.maps.Marker({
+                map: map,
+                label: {
+                    text: shop.id.toString(),
+                    color: "white",
+                    fontSize: "10px",
+                    fontWeight: "bold"
+                },
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 11,
+                    fillColor: color,
+                    fillOpacity: 1,
+                    strokeWeight: 2,
+                    strokeColor: "white"
+                }
+            });
+
+            // Geocoding with fallback
+            if (geocoder) {
+                geocoder.geocode({ 'address': shop.address }, function(results, status) {
+                    if (status === 'OK') {
+                        marker.setPosition(results[0].geometry.location);
+                        shop.resolvedLoc = results[0].geometry.location;
+                    } else {
+                        // Fallback
+                        marker.setPosition({lat: shop.lat, lng: shop.lng});
+                        shop.resolvedLoc = {lat: shop.lat, lng: shop.lng};
+                    }
+                });
+            } else {
+                marker.setPosition({lat: shop.lat, lng: shop.lng});
+                shop.resolvedLoc = {lat: shop.lat, lng: shop.lng};
+            }
+
+            marker.addListener("click", () => {
+                const el = document.getElementById(`shop-card-${shop.id}`);
+                if(el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    showRouteToShop(shop.id);
+                }
+            });
+
+            return marker;
+        }
+
+        function updateMapMarkers() {
+            if (!map) return;
+
+            markers.forEach(m => m.setMap(null));
+            markers = [];
+
+            const filteredShops = currentCategory === 'all' 
+                ? shops 
+                : shops.filter(s => s.category === currentCategory);
+
+            filteredShops.forEach((shop) => {
+                const m = createMarker(shop);
+                markers.push(m);
+            });
+            
+            // Hotel Marker
+            const hotelMarker = new google.maps.Marker({
+                position: { lat: hotelData.lat, lng: hotelData.lng }, // ジオコーディングを使わず正確な座標を指定
+                map: map,
+                label: { text: "★諫早第一ホテル", color: "white", fontWeight: "bold", fontSize: "12px", className: "map-label-hotel" },
+                icon: { path: google.maps.SymbolPath.CIRCLE, scale: 9, fillColor: "#ef4444", fillOpacity: 1, strokeWeight: 2, strokeColor: "white" },
+                zIndex: 999
+            });
+
+            // ホテルの位置は自動取得(ジオコーディング)せず、指定座標に完全に固定する
+            hotelData.resolvedLoc = { lat: hotelData.lat, lng: hotelData.lng };
+        }
+
+        function showRouteToShop(id) {
+            if (!map || !directionsService || !directionsRenderer) return;
+
+            const shop = shops.find(s => s.id === id);
+            if(!shop) return;
+            
+            document.querySelectorAll('.shop-card').forEach(c => c.classList.remove('selected'));
+            const card = document.getElementById(`shop-card-${id}`);
+            if(card) card.classList.add('selected');
+
+            const request = {
+                origin: hotelData.resolvedLoc, // 調整済みの座標を起点にする
+                destination: shop.resolvedLoc || shop.address,
+                travelMode: 'WALKING'
+            };
+
+            directionsService.route(request, function(result, status) {
+                if (status === 'OK') {
+                    directionsRenderer.setDirections(result);
+                } else {
+                    if(shop.resolvedLoc) map.panTo(shop.resolvedLoc);
+                    else map.panTo({ lat: shop.lat, lng: shop.lng });
+                    map.setZoom(17);
+                }
+            });
+        }
+
+        window.initMap = function() {
+            const mapStyle = [
+                { "featureType": "all", "elementType": "labels.text.fill", "stylers": [{"saturation": 36}, {"color": "#333333"}, {"lightness": 40}] },
+                { "featureType": "all", "elementType": "labels.text.stroke", "stylers": [{"visibility": "on"}, {"color": "#ffffff"}, {"lightness": 16}] },
+                { "featureType": "all", "elementType": "labels.icon", "stylers": [{"visibility": "off"}] },
+                { "featureType": "poi", "elementType": "geometry", "stylers": [{"color": "#f1f5f9"}, {"lightness": 21}] },
+                { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{"color": "#ffffff"}, {"lightness": 17}] },
+                { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{"color": "#ffffff"}, {"lightness": 29}, {"weight": 0.2}] },
+                { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{"color": "#ffffff"}, {"lightness": 18}] },
+                { "featureType": "road.local", "elementType": "geometry", "stylers": [{"color": "#ffffff"}, {"lightness": 16}] },
+                { "featureType": "water", "elementType": "geometry", "stylers": [{"color": "#cbd5e1"}, {"lightness": 17}] }
+            ];
+
+            // Center on Eisho-higashi 1-1 (Isahaya Station/iisa area)
+            const centerLoc = { lat: 32.8517, lng: 130.0418 };
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14, // 15から14へ縮小し、ホテルが見えるように調整
+                center: centerLoc,
+                styles: mapStyle,
+                disableDefaultUI: true,
+                scaleControl: true
+            });
+
+            geocoder = new google.maps.Geocoder();
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer({
+                map: map,
+                suppressMarkers: true,
+                preserveViewport: false,
+                polylineOptions: { strokeColor: "#2563eb", strokeOpacity: 0.7, strokeWeight: 5 }
+            });
+
+            updateMapMarkers();
+        };
+
+        window.loadMapWithKey = function() {
+            if (typeof google === 'object' && typeof google.maps === 'object') {
+                initMap(); return;
+            }
+            const existingScript = document.getElementById('google-maps-script');
+            if (existingScript) existingScript.remove();
+            const script = document.createElement('script');
+            script.id = 'google-maps-script';
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=initMap`;
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+        }
+
+        window.onload = function() {
+            renderShops();
+            loadMapWithKey();
+        };
+    </script>
+
+<script id="google-maps-script" src="./諫早第一ホテル 周辺MAP_files/js" async="" defer=""></script></body></html>
